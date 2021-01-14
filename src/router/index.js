@@ -19,7 +19,18 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
+  },
+  {
+    path: '/ver-antecedente',
+    name: 'Ver-antecedete',
+    component: () => import(/* webpackChunkName: "about" */ '../views/VerAntecedente.vue')
+  },
+  {
+    path: '/crear-antecedente',
+    name: 'Crear-antecedete',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearAntecedente.vue')
   }
+
 ]
 
 const router = new VueRouter({
