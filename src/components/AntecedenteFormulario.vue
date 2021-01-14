@@ -69,20 +69,20 @@
           dense
           outlined
           solo
-          placeholder="Ingrese su tiposangreo"
+          placeholder="Ingrese su tipo sangre"
           v-model="antFormulario.antTipoSangre"
           type="text"
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>sangre</p>
+        <p>medicamentos</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su medicamentis"
+          placeholder="Ingrese su medicamentos"
           v-model="antFormulario.antMedicamentos"
           type="text"
         />
@@ -129,7 +129,7 @@ export default {
       esAntFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-      mostrarContraseña: false,
+    
     };
   },
   methods: {
