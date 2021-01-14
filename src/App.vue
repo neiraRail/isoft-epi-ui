@@ -2,9 +2,9 @@
   <v-app>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">aboute</router-link> |
+      <router-link to="/about">about</router-link> |
       <router-link to="/crear-antecedente">Crear Antecedente</router-link> |
-      <router-link to="/ver-antecedente">ver Antecedente</router-link> |
+      <router-link to="/ver-antecedente">Ver Antecedente</router-link> |
     </div>
     <router-view/>
   </v-app>
@@ -27,7 +27,7 @@
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #b9429f;
     }
   }
 }

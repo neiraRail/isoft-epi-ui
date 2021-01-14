@@ -9,7 +9,7 @@
           solo
           placeholder="Escriba el rut"
           v-model="rutFilter"
-          type="text"
+          type="number"
         />
       </v-col>
     </v-row>
@@ -36,7 +36,6 @@ export default {
             if (!this.nombreFilter) return true;
             return value.toString().includes(this.nombreFilter.toString());
           },
-
 
         },
         {
