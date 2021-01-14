@@ -17,12 +17,12 @@
           outlined
           solo
           placeholder="Ingrese su RUN"
-          v-model="antFormulario.Paciente.pacRut"
+          v-model="antFormulario.paciente.pacRut"
           type="number"
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Embarazo</p>
+        <p>paciente esta Embarazada</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-switch
@@ -88,7 +88,7 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>vaije</p>
+        <p>Viaje alExtranjero</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
@@ -115,7 +115,7 @@ export default {
   data() {
     return {
       antFormulario: {
-        Paciente:{
+        paciente:{
           pacRut:"",
         },
         antEmbarazo: "",
