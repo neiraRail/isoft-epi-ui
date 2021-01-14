@@ -1,7 +1,7 @@
 <template>
   <v-form
     ref="form"
-    v-model="esANtFormularioValido"
+    v-model="esAntFormularioValido"
     lazy-validation
     class="justify-center"
     style="margin: 2% 15%"
@@ -9,53 +9,99 @@
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
       <v-col cols="12" md="4">
-        <p>Nombre</p>
+        <p>RUN</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su rut"
-          v-model="AntFormulario.paciente"
-          validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
+          placeholder="Ingrese su RUN"
+          v-model="antFormulario.Paciente.pacRut"
+          type="number"
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Dirección</p>
+        <p>Embarazo</p>
       </v-col>
       <v-col cols="12" md="8">
-        <v-text-field
-          dense
-          outlined
-          solo
-          placeholder="Ingrese su enfermedades cronicas"
-          v-model="antFormulario.antEnfermedad_cronica"
-          validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
-        />
-      </v-col>
+        <v-switch
     
+          v-model="antFormulario.antEmbarazo"
+          flat
+      
+        />
+      </v-col>
       <v-col cols="12" md="4">
-        <p>Telefono</p>
+        <p>Enfermedad crónica</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su Telefono"
-          v-model="dueFormulario.dueTelefono"
+          placeholder="Ingrese si tiene una enfermedad crónica"
+          v-model="antFormulario.antEnfermedadCronica"
+          validate-on-blur
+          
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Alergias</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese si tiene alergias"
+          v-model="antFormulario.antAlergias"
+          validate-on-blur
+          
+        />
+      </v-col>
+      
+      <v-col cols="12" md="4">
+        <p>sangre</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su tiposangreo"
+          v-model="antFormulario.antTipoSangre"
           type="text"
-          validate-on-blur
-          :rules="[formRules.noBlankTextRequired, formRules.phoneLength]"
-          @input="soloNumerosTelefono"
         />
       </v-col>
-    
+      <v-col cols="12" md="4">
+        <p>sangre</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su medicamentis"
+          v-model="antFormulario.antMedicamentos"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>vaije</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su viaje"
+          v-model="antFormulario.antViajeExtranjero"
+          type="text"
+        />
+      </v-col>
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="guardarAntecedente">Guardar antecedente</v-btn>
+        <v-btn @click="guardarAntecedente">Guardar</v-btn>
       </v-col>
     </v-row>
   </v-form>
@@ -63,15 +109,22 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import AntecedenteService from "@/services/antecedentes.service";
+import antecedentesService from "@/services/antecedentes.service";
 
 export default {
   data() {
     return {
       antFormulario: {
-        dueTelefono: "",
-        dueNombre: "",
-        dueDireccion: "",
+        Paciente:{
+          pacRut:"",
+        },
+        antEmbarazo: "",
+        antEnfermedadCronica: "",
+        antAlergias: "",
+        antTipoSangre: "",
+        antMedicamentos: "",
+        antViajeExtranjero: "",
+
       },
       esAntFormularioValido: "",
       formRules: formRules,
@@ -80,22 +133,10 @@ export default {
     };
   },
   methods: {
-    soloNumerosTelefono() {
-      this.$nextTick(() => {
-        this.antFormulario.dueTelefono = this.antFormulario.dueTelefono.replace(
-          /[^0-9]/g,
-          ""
-        );
-        if (this.antFormulario.dueTelefono.length >= 9)
-          this.antFormulario.dueTelefono = this.antFormulario.dueTelefono.slice(
-            0,
-            9
-          );
-      });
-    },
+    
     guardarAntecedente() {
       if (!this.$refs.form.validate()) return;
-      return AntecedenteService.create(this.antFormulario).then(
+      return antecedentesService.create(this.antFormulario).then(
         () => {
           this.$router.push({
             name: "Home",
