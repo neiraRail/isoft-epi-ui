@@ -22,14 +22,13 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>paciente esta Embarazada</p>
+        <p>Paciente esta Embarazada</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-switch
-    
           v-model="antFormulario.antEmbarazo"
-          flat
-      
+          :label="`${antFormulario.antEmbarazo.toString()}`"
+          color="red"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -118,7 +117,7 @@ export default {
         paciente:{
           pacRut:"",
         },
-        antEmbarazo: "",
+        antEmbarazo: false,
         antEnfermedadCronica: "",
         antAlergias: "",
         antTipoSangre: "",

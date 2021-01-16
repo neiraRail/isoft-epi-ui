@@ -5,7 +5,7 @@ export const service = {
         return ApiService.get(url, { id: "" });
     },
     get(id) {
-        return ApiService.get(url, { id: id });
+        return ApiService.get(url+"/buscar", { id: id });
     },
     create(params) {
         return ApiService.post(url, { params: params });

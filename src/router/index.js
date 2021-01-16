@@ -29,7 +29,25 @@ const routes = [
     path: '/crear-antecedente',
     name: 'Crear-antecedete',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearAntecedente.vue')
+  },
+  {
+    path:"/antecedente/:slug",
+    name:"Editar-antecedente",
+    props:true,
+    component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
+  },
+  {
+    path:"/editar-antecedente",
+    name:"Edit-antecedente",
+    props:true,
+    component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
+  },
+  {
+    path:"/elegir-paciente",
+    name:"Elegir-paciente",
+    component: () =>import(/* webpackChunkName: "about" */ '../views/ElegirPaciente.vue')
   }
+
 
 ]
 
