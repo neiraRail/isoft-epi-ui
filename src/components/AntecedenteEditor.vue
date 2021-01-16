@@ -1,77 +1,157 @@
 <template>
-  <div>
-    <v-row  justify="center" dense>
-      <v-col cols="4" align-self="center">
-        <p style="text-align:center">Filtrar Rut</p>
+ <v-form
+    ref="form"
+    v-model="esAntFormularioValido"
+    lazy-validation
+    class="justify-center"
+    style="margin: 2% 15%"
+  >
+    <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
+    <v-row>
+      <v-col cols="12" md="4">
+        <p>RUN</p>
+      </v-col>
+      <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Escriba el rut"
-          v-model="rutFilter"
+          placeholder="Ingrese su RUN"
+          v-model="antFormulario.paciente.pacRut"
+          type="number"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Paciente esta Embarazada</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-switch
+          v-model="antFormulario.antEmbarazo"
+          :label="`${antFormulario.antEmbarazo.toString()}`"
+          color="red"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Enfermedad crónica</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese si tiene una enfermedad crónica"
+          v-model="antFormulario.antEnfermedadCronica"
+          validate-on-blur
+          
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Alergias</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese si tiene alergias"
+          v-model="antFormulario.antAlergias"
+          validate-on-blur
+          
+        />
+      </v-col>
+      
+      <v-col cols="12" md="4">
+        <p>sangre</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su tipo sangre"
+          v-model="antFormulario.antTipoSangre"
           type="text"
         />
       </v-col>
+      <v-col cols="12" md="4">
+        <p>medicamentos</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su medicamentos"
+          v-model="antFormulario.antMedicamentos"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Viaje alExtranjero</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su viaje"
+          v-model="antFormulario.antViajeExtranjero"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn @click="guardarAntecedente">Guardar</v-btn>
+      </v-col>
     </v-row>
-    <v-data-table :headers="antecedentesHeaders" :items="antecedentes" class="elevation-1">
-    </v-data-table>
-    
-  </div>
+  </v-form>
 </template>
 
 <script>
+
+import formRules from "@/common/formRules.js";
+import antecedentesService from "@/services/antecedentes.service";
+
 export default {
   props: {
     title: String,
-    antecedentes: { type: Array, default: () => [] },
+    antecedente: { type: Object, default: () => {} },
   },
   data() {
     return {
-      rutFilter: "",
-      antecedentesHeaders: [
-        {
-          text: "Rut",
-          value: "paciente.pacRut",
-          filter: (value) => {
-            if (!this.rutFilter) return true;
-            return value.toString().includes(this.rutFilter.toString());
-          },
+      antFormulario: {
+        antId:"antId",
+        paciente:{
+          pacRut:"paciente.pacRut",
+        },
+        antEmbarazo: "antEmbarazo",
+        antEnfermedadCronica: "antEnfermedadCronica",
+        antAlergias: "antAlergias",
+        antTipoSangre: "antTipoSangre",
+        antMedicamentos: "antMedicamentos",
+        antViajeExtranjero: "antViajeExtranjero",
 
-        },
-        {
-          text: "Paciente",
-          value: "paciente.pacNombres",
-
-        },
-        {
-          text: "",
-          value: "paciente.pacApellidos",
-
-        },
-        { text: "embarazo", 
-        value: "antEmbarazo" },
-        {
-          text: "cronico",
-          value: "antEnfermedadCronica",
-        },
-        {
-          text: "alergias",
-          value: "antAlergias",
-        },
-        {
-          text: "sangre",
-          value: "antTipoSangre",
-        },
-        {
-          text: "meds",
-          value: "antMedicamentos",
-        },
-        {
-          text: "viaje",
-          value: "antViajeExtranjero",
-        },
-      ],
+      },
+      esAntFormularioValido: "",
+      formRules: formRules,
+      mensajeError: "",
+    
     };
+
+  },
+  methods: {
+    guardarAntecedente() {
+      if (!this.$refs.form.validate()) return;
+      return antecedentesService.create(this.antFormulario).then(
+        () => {
+          this.$router.push({
+            name: "Ver-antecedete",
+          });
+        },
+        (error) => {
+          this.mensajeError = error.message;
+        }
+      );
+    },
   },
 };
 </script>

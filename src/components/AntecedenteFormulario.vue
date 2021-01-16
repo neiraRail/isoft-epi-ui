@@ -19,6 +19,9 @@
           placeholder="Ingrese su RUN"
           v-model="antFormulario.paciente.pacRut"
           type="number"
+          validate-on-blur
+          :rules="[formRules.noBlankTextRequired]"
+
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -61,16 +64,17 @@
       </v-col>
       
       <v-col cols="12" md="4">
-        <p>sangre</p>
+        <p>Tipo de sangre</p>
       </v-col>
       <v-col cols="12" md="8">
-        <v-text-field
-          dense
-          outlined
-          solo
-          placeholder="Ingrese su tipo sangre"
-          v-model="antFormulario.antTipoSangre"
-          type="text"
+        <v-select
+        :items="tiposSangre"
+        v-model="antFormulario.antTipoSangre"
+        label= "Tipo de Sangre"
+        outlined
+        validate-on-blur
+          :rules="[formRules.noBlankTextRequired]"
+
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -111,6 +115,7 @@ import formRules from "@/common/formRules.js";
 import antecedentesService from "@/services/antecedentes.service";
 
 export default {
+  
   data() {
     return {
       antFormulario: {
@@ -128,7 +133,7 @@ export default {
       esAntFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-    
+      tiposSangre:['O-','O+','A-','A+','B-','B+','AB-','AB+'],
     };
   },
   methods: {

@@ -1,6 +1,5 @@
 <template>
   <div class="antecedenteform">
-    <p>hola</p>
     <IngresoPac />
   </div>
 </template>

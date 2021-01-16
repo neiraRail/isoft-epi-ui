@@ -37,7 +37,7 @@ export default {
   },
   methods: {
    guardar() {
-    
+    // arreglar esto
         () => {
           this.$router.push({
             name: "Home",
