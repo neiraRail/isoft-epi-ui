@@ -7,13 +7,9 @@
 <script>
 import antecedenteService from "@/services/antecedentes.service";
 export default {
-  props:{
-    id: { type: Number, default: () => "" },
-  },
-  name: "App",
   data(){
     return{
-      antecedente:{}
+      antecedente:{} ,
     }
   },
   methods: {
