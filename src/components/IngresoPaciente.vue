@@ -8,7 +8,7 @@
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
       <v-col cols="12" md="4">
-        <p>id antecedente</p>
+        <p>Ingrese el id del antecedente que desea editar</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field

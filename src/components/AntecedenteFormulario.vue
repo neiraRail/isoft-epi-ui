@@ -18,9 +18,9 @@
           solo
           placeholder="Ingrese su RUN"
           v-model="antFormulario.paciente.pacRut"
-          type="number"
+          type="text"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.noBlankTextRequired, formRules.runPattern]"
 
         />
       </v-col>
