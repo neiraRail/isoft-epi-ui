@@ -92,10 +92,9 @@
           { title: 'Home', icon: 'mdi-account-details', to:"/"  },
           { title: 'Registro de Pacientes', icon: 'mdi-account-group', to:"/"},
           { title: 'Registro de Establecimientos', icon: 'mdi-account-plus-outline', to:"/" },
-          { title: 'Ingresar antecedente', icon: 'mdi-account-search-outline', to:"/" },
-          { title: 'Ingresar paciente', icon: 'mdi-account-search-outline', to:"/" },
-          { title: '', icon: 'mdi-account-search-outline', to:"/" },
-          { title: 'Registro de ', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Registro antecedente', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Registro de casos', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Ingresar nuevo paciente', icon: 'mdi-account-search-outline', to:"/" },
         ],   
         
     }),
