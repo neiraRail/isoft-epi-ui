@@ -17,9 +17,9 @@
 export default {
   name: 'f1',
   components: {
-    Formulario3: () => import("@/components/AntecedenteFormulario"),
+    //Formulario3: () => import("@/components/AntecedenteFormulario"),
     //Formulario2: () => import("@/components/CasoFormulario"),
-    Formulario1: () => import("@/components/PacienteFormulario")
+    //Formulario1: () => import("@/components/PacienteFormulario")
   }
 
 }

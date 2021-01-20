@@ -19,7 +19,16 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-  }
+  },{
+    path: '/crear-paciente',
+    name: 'Crear-paciente',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearPaciente.vue')
+  },{
+    path: '/buscar-paciente',
+    name: 'Buscar-paciente',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
+  },
+  
 ]
 
 const router = new VueRouter({
