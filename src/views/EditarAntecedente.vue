@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <p>hoal esta funcionando</p>
       <AntecedenteEditor :antecedente="antecedente"/>
   </div>
 </template>
