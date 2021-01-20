@@ -64,21 +64,6 @@
           
         />
       </v-col>
-      
-      <v-col cols="12" md="4">
-        <p>DV</p>
-      </v-col>
-      <v-col cols="12" md="8">
-        <v-text-field
-          dense
-          outlined
-          solo
-          placeholder="Ingrese su DV"
-          v-model="paciente.pacDv"
-          type="text"
-          :rules="[formRules.noBlankTextRequired]"
-        />
-      </v-col>
       <v-col cols="12" md="4">
         <p>Nacionalidad</p>
       </v-col>
@@ -120,7 +105,21 @@
           type="text"
           :rules="[formRules.noBlankTextRequired]"
         />
-      </v-col> <v-col cols="12" md="4">
+      </v-col>
+       <v-col cols="12" md="4">
+        <p>Fecha Fallecimiento</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Fecha Fallecimiento"
+          v-model="paciente.pacFechaFallecimiento"
+          type="text"
+        />
+      </v-col>
+       <v-col cols="12" md="4">
         <p>Sexo</p>
       </v-col>
       <v-col cols="12" md="8">
@@ -144,7 +143,7 @@
           placeholder="Ingrese su numero de telefono"
           v-model="paciente.pacTelefono"
           type="text"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.phoneLength]"
         />
       </v-col>
       <v-col cols="12" align="center" justify="center">
@@ -166,7 +165,7 @@ export default {
         pacNombres:"",
         pacApellidos: "",
         pacDireccion: "",
-        pacDv: "",
+        pacFechaFallecimiento: "",
         pacNacionalidad: "",
         pacPuebloOriginario: "",
         pacSexo:"",

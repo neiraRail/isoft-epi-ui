@@ -33,8 +33,8 @@ export default {
           text: "RUT",
           value: "paciente.pacRut",
           filter: (value) => {
-            if (!this.nombreFilter) return true;
-            return value.toString().includes(this.nombreFilter.toString());
+            if (!this.rutFilter) return true;
+            return value.toString().includes(this.rutFilter.toString());
           },
 
         },
@@ -52,7 +52,7 @@ export default {
         value: "paciente.pacDireccion" },
         {
           text: "",
-          value: "paciente.pacDv",
+          value: "paciente.pacFechaFallecimiento",
         },
         {
           text: "",

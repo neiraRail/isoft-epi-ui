@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import pacienteBuscarService from "@/services/pacienteBuscar.service";
+import pacienteService from "@/services/paciente.service";
 export default {
   name: "home",
   data(){
@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     fetchPacientes() {
-      pacienteBuscarService.getAll().then(response => (this.paciente = response.data));
+      pacienteService.getAll().then(response => (this.paciente = response.data));
     }
   },
   components: {
