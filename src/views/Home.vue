@@ -1,6 +1,10 @@
 <template>
   <div class="f1">
-    <Formulario />
+    <h2 style="color:red;" >Formulario del Paciente</h2>
+    <Formulario1 />
+    <hr class="dashed">
+    <h2>Antecednetes</h2>
+    <Formulario2 />
   </div>
   
 </template>
@@ -10,7 +14,9 @@
 export default {
   name: 'f1',
   components: {
-    Formulario: () => import("@/components/AntecedenteFormulario")
+    Formulario2: () => import("@/components/AntecedenteFormulario"),
+    Formulario1: () => import("@/components/PacienteFormulario")
   }
+
 }
 </script>
