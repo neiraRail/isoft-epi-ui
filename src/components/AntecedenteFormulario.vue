@@ -18,9 +18,9 @@
           solo
           placeholder="Ingrese su RUN"
           v-model="antFormulario.paciente.pacRut"
-          type="text"
+          type="number"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired, formRules.runPattern]"
+          :rules="[formRules.noBlankTextRequired]"
 
         />
       </v-col>
@@ -143,7 +143,7 @@ export default {
       return antecedentesService.create(this.antFormulario).then(
         () => {
           this.$router.push({
-            name: "Home",
+             name: 'home'
           });
         },
         (error) => {
