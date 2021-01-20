@@ -10,7 +10,7 @@ export default {
   props:['Id'],
   data(){
     return{
-      antecedente:[] ,
+      antecedente: null ,
     }
   },
   methods: {
