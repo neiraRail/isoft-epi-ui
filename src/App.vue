@@ -14,6 +14,7 @@
         nav
       >
         <v-list-item
+          style="color:#d5e1f0;"
           v-for="item in items"
           :key="item.title"
           :to="item.to"
@@ -23,7 +24,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title  style="font-weight: bold;">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -54,7 +55,7 @@
         
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        {{ new Date().getFullYear() }} 
       </v-col>
     </v-row>
     </v-footer>
@@ -69,19 +70,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #0e4e9c;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #0e4e9c;
-
-    &.router-link-exact-active {
-      color: #0e4e9c;
-    }
-  }
 }
 </style>
 <script>
