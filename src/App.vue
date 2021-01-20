@@ -69,7 +69,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #021605;
+  color: #0b4614;
 }
 </style>
 <script>
