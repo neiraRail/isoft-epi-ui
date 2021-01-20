@@ -7,14 +7,15 @@
 <script>
 import antecedenteService from "@/services/antecedentes.service";
 export default {
+  props:['Id'],
   data(){
     return{
-      antecedente:{} ,
+      antecedente:[] ,
     }
   },
   methods: {
     fetchAntecedentes() {
-      antecedenteService.get().then(response => (this.antecedente = response.data));
+      antecedenteService.get(this.Id).then(response => (this.antecedente = response.data));
     }
   },
   components: {

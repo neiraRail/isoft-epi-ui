@@ -37,7 +37,7 @@ const routes = [
     component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
   },
   {
-    path:"/editar-antecedente",
+    path:"/editar-antecedente/:Id",
     name:"Edit-antecedente",
     props:true,
     component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')

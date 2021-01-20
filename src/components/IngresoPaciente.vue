@@ -37,12 +37,9 @@ export default {
   },
   methods: {
    guardar() {
-    // arreglar esto
-        () => {
-          this.$router.push({
-            name: "Home",
-          });
-        }
+      this.$router.push({
+         name: "/editar-antecedente/"+id,
+      });
     },
   },
 };
