@@ -1,11 +1,11 @@
 <template>
   <div class="f1">
-    <h2 style="color:red;" >Formulario del Paciente</h2>
+    <h2 style="color:#0b4614;" >Formulario del Paciente</h2>
     <Formulario1 />
     <hr><br>
-    <h2 style="color:red;"  >Antecedentes</h2>
+    <h2 style="color:#0b4614;"  >Antecedentes</h2>
     <Formulario3 />
-    <hr> <br>
+    <hr  style="color:#0b4614;"> <br>
      <h2>Casos</h2>
     <Formulario2 />
   </div>

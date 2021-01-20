@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <v-navigation-drawer color="#4270a8" v-model="drawer" app>
+    <v-navigation-drawer color="#506d44" v-model="drawer" app>
       
        <div id="logo">
         <v-img
-          :src="require('../src/assets/logogob.png')"
-          width="220" height="220"
+          :src="require('../src/assets/logoepi.png')"
+          width="235" height="235"
         />
       </div>
       <v-divider></v-divider>
@@ -14,11 +14,11 @@
         nav
       >
         <v-list-item
-          style="color:#d5e1f0;"
           v-for="item in items"
           :key="item.title"
           :to="item.to"
           link
+          style="color:white"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -30,7 +30,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar height="160" color="#white" app>
+    <v-app-bar height="160" color="#81ab70" app>
       
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -46,7 +46,7 @@
       <router-view/>
     </v-main>
 
-    <v-footer color="#d16667" app>
+    <v-footer color="#d9d5bf" app>
       <v-row
       justify="center"
       no-gutters
@@ -69,7 +69,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #0e4e9c;
+  color: #021605;
 }
 </style>
 <script>
