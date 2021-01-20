@@ -91,14 +91,14 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Viaje alExtranjero</p>
+        <p>Viaje al extranjero</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su viaje"
+          placeholder="Ingrese la ciudad y país al que viajó"
           v-model="antFormulario.antViajeExtranjero"
           type="text"
         />

@@ -7,10 +7,10 @@
   >
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="10" md="4">
         <p>Ingrese el id del antecedente que desea editar</p>
       </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="10" md="8">
         <v-text-field
           dense
           outlined
@@ -20,7 +20,7 @@
           validate-on-blur
         />
       </v-col>
-      <v-col cols="12" align="center" justify="center">
+      <v-col cols="10" align="center" justify="center">
         <v-btn @click="guardar">Guardar</v-btn>
       </v-col>
     </v-row>
@@ -30,20 +30,15 @@
 <script>
 export default {
   data() {
-    return {
-      id:"",
-      mensajeError: "",
-    };
+   return{
+    id:"",
+   };
   },
   methods: {
    guardar() {
-      this.$router.push({
-         name: "/editar-antecedente/"+id,
-      });
+      this.$router.push(
+        {name: 'Edit-antecedente', params: { id: this.id }});
     },
   },
 };
 </script>
-
-<style>
-</style>

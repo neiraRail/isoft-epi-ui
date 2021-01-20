@@ -7,7 +7,9 @@
 <script>
 import antecedenteService from "@/services/antecedentes.service";
 export default {
+
   props:['Id'],
+  
   data(){
     return{
       antecedente: null ,

@@ -2,12 +2,9 @@
   <v-app>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">about</router-link> |
       <router-link to="/crear-antecedente">Crear Antecedente</router-link> |
       <router-link to="/ver-antecedente">Ver Antecedente</router-link> |
-      <router-link to="/antecedente/:id">Editar Antecedente no</router-link> |
-      <router-link to="/elegir-paciente">elegir paciente</router-link> |
-      <router-link to="/editar-antecedente">Editar Antecedente</router-link> |
+      <router-link to="/elegir-paciente">Editar</router-link>
     </div>
     <router-view/>
   </v-app>

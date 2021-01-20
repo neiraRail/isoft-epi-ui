@@ -30,17 +30,12 @@ const routes = [
     name: 'Crear-antecedete',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearAntecedente.vue')
   },
+ 
   {
-    path:"/antecedente/:slug",
-    name:"Editar-antecedente",
-    props:true,
-    component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
-  },
-  {
-    path:"/editar-antecedente/:Id",
+    path:'/editar-antecedente/:id',
     name:"Edit-antecedente",
     props:true,
-    component: () =>import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
+    component: require(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
   },
   {
     path:"/elegir-paciente",
