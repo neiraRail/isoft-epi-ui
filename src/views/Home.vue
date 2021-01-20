@@ -1,6 +1,6 @@
 <template>
   <div class="f1">
-    //<PacienteFormulario />
+    <PacienteFormulario />
   </div>
   
 </template>

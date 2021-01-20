@@ -22,7 +22,6 @@
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -93,16 +92,12 @@
           { title: 'Home', icon: 'mdi-account-details', to:"/"  },
           { title: 'Registros de Pacientes', icon: 'mdi-account-group', to:"/"},
           { title: 'Registro de Establecimientos', icon: 'mdi-account-plus-outline', to:"/" },
+          { title: 'Registrar nuevo antecedente', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Registro de ', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Registro de ', icon: 'mdi-account-search-outline', to:"/" },
           { title: 'Registro de ', icon: 'mdi-account-search-outline', to:"/" },
         ],   
-        links: [
-        'Home |',
-        'About Us |',
-        'Team |',
-        'Services |',
-        'Blog |',
-        'Contact Us',
-      ],   
+        
     }),
   }
 
