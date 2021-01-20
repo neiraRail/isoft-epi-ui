@@ -35,7 +35,7 @@ const routes = [
     path:'/editar-antecedente/:id',
     name:"Edit-antecedente",
     props:true,
-    component: require(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/EditarAntecedente.vue')
   },
   {
     path:"/elegir-paciente",

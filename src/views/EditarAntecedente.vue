@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     fetchAntecedentes() {
-      antecedenteService.get(this.Id).then(response => (this.antecedente = response.data));
+      antecedenteService.get(this.Id).then(response => (this.antecedente = response.data[0]));
     }
   },
   components: {
