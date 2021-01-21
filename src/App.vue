@@ -76,6 +76,7 @@
     data: () => ({
        drawer: null,
        items: [
+<<<<<<< HEAD
           { title: 'Home', icon: 'mdi-account-details', to:"/"  },
           { title: 'Registro de Pacientes', icon: 'mdi-account-group', to:"/"},
           { title: 'Registro de Establecimientos', icon: 'mdi-account-plus-outline', to:"/" },
@@ -84,6 +85,14 @@
           { title: 'Editar antecedente', icon: 'mdi-file-document-edit', to:"/elegir-paciente" },
           { title: 'Registro de casos', icon: 'mdi-account-search-outline', to:"/" },
           { title: 'Ingresar nuevo paciente', icon: 'mdi-account-search-outline', to:"/" },
+=======
+          { title: 'Home', icon: 'mdi-home', to:"/"  },
+          { title: 'Pacientes', icon: 'mdi-account-group', to:"/"},
+          { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/" },
+          { title: 'Antecedente', icon: 'mdi-file-outline', to:"/" },
+          { title: 'Casos', icon: 'mdi-clipboard-outline', to:"/" },
+          { title: ' PDF', icon: 'mdi-file-pdf', to:"/" },
+>>>>>>> develop
         ],   
         
     }),
