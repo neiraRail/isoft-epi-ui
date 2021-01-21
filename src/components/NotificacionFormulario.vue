@@ -8,10 +8,11 @@
   >
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
+      <v-col cols="1" md="12"><h2 style="color:#0b4614;" >Ingrese el run del paciente</h2></v-col>
       <v-col cols="1" md="100"><p>Run:</p></v-col>
       <v-text-field
         outlined
-        placeholder="Ingrese su run"
+        placeholder="Aquí se debe ingresar el run sin puntos ni guión"
         v-model="formRut"
         validate-on-blur
         :rules="[formRules.noBlankTextRequired,formRules.runPattern]"
@@ -19,7 +20,6 @@
       <v-col cols="12" md="0">
         <v-btn @click="imprimirNotificacion()">Imprimir Notificación</v-btn>  
         <v-col cols="1" md="1"></v-col>
-        <!-- <v-btn>volver</v-btn> -->
       </v-col>
     </v-row>
   </v-form>
