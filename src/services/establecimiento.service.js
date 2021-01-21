@@ -1,5 +1,5 @@
 import ApiService from "@/services/api.service";
-const url = "establecimiento";
+const url = "establecimiento/agregar";
 export const service = {
     getAll() {
         return ApiService.get(url, { id: "" });

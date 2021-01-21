@@ -3,9 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/crear-establecimiento">Registrar Establecimiento</router-link> |
-      <router-link to="/crear-establecimiento">Buscar Establecimiento</router-link> |
-      <router-link to="/crear-establecimiento">Editar Establecimiento</router-link> |
-      <router-link to="/crear-establecimiento">Registrar Establecimiento</router-link> |
+      <router-link to="/buscar-establecimiento">Buscar Establecimiento</router-link> |
+      <router-link to="/editar-establecimiento">Editar Establecimiento</router-link> |
+      <router-link to="/borrar-establecimiento">Eliminar Establecimiento</router-link> |
 
     </div>
     <router-view/>

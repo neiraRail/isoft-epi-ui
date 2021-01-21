@@ -5,11 +5,11 @@
 </template>
 
 <script>
-
-export default {
-  name: 'Home',
+import EstablecimientoFormulario from '@/components/EstablecimientoFormulario.vue'
+  export default {
+  name: 'home',
   components: {
-    EstablecimientoFormulario: () => import("@/components/EstablecimientoFormulario")
+    EstablecimientoFormulario
   }
 }
 </script>

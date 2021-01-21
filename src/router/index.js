@@ -21,7 +21,7 @@ const routes = [
     }
   }, {
     path: '/crear-establecimiento',
-    name: 'Crear-Establecimiento',
+    name: 'crear-establecimiento',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
   }
 ]
