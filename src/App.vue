@@ -18,13 +18,12 @@
           :key="item.title"
           :to="item.to"
           link
-          style="color:white"
         >
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon style="color:white">{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title  style="font-weight: bold;">{{ item.title }}</v-list-item-title>
+            <v-list-item-title  style="color:white;font-weight: bold;">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
