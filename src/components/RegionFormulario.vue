@@ -17,7 +17,7 @@
           outlined
           solo
           placeholder="Ingrese el nombre de la región"
-          v-model="estFormulario.regNombre"
+          v-model="regNombre"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -31,14 +31,12 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import regionService from "@/services/region.service";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      estFormulario: {
-        regNombre: "",
-      },
+      regNombre: "",
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
@@ -46,18 +44,10 @@ export default {
   },
 
   methods: {
-    
-    guardarRegion() {
-      if (!this.$refs.form.validate()) return;
-      return regionService.create(this.estFormulario).then(
-        () => {
-          this.$router.push({
-            name: "Home",
-          });
-        },
-        (error) => {
-          this.mensajeError = error.message;
-        }
+      guardarRegion() {
+      axios.post(
+        "http://localhost:8080/api/region/agregar/?nombre="+
+          this.regNombre 
       );
     },
   },

@@ -17,7 +17,7 @@
           outlined
           solo
           placeholder="Ingrese el nombre del establecimiento"
-          v-model="estFormulario.estNombre"
+          v-model="estNombre"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -32,7 +32,7 @@
           outlined
           solo
           placeholder="Ingrese la dirección del establecimiento"
-          v-model="estFormulario.estDireccion"
+          v-model="estDireccion"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -47,7 +47,7 @@
           outlined
           solo
           placeholder="Ingrese el id de la comuna"
-          v-model="estFormulario.estComuna"
+          v-model="com_Id"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -62,19 +62,14 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import establecimientoService from "@/services/establecimiento.service";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      estFormulario: {
-         comuna:{
-          com_id:"",
-        },
-        estNombre: "",
-        estDireccion: "",
-        estComuna: "",
-      },
+      com_Id:"",
+      estNombre: "",
+      estDireccion: "",
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
@@ -82,18 +77,14 @@ export default {
   },
 
   methods: {
-    
-    guardarEstablecimiento() {
-      if (!this.$refs.form.validate()) return;
-      return establecimientoService.create(this.estFormulario).then(
-        () => {
-          this.$router.push({
-            name: "Home",
-          });
-        },
-        (error) => {
-          this.mensajeError = error.message;
-        }
+      guardarEstablecimiento() {
+      axios.post(
+        "http://localhost:8080/api/establecimiento/agregar/" +
+          this.estNombre +
+          "/" +
+          this.estDireccion +
+          "/" +
+          this.com_Id
       );
     },
   },
