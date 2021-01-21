@@ -38,6 +38,11 @@ const routes = [
     name: 'Buscar-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   },
+  {
+    path: '/imprimir-notificacion',
+    name: 'Imprimir-notificacion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ImprimirNotificacion.vue')
+  }
   
 ]
 

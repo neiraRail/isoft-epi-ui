@@ -7,7 +7,7 @@ const rules = {
       );
     },
     runPattern: value => {
-      const pattern = /^(([0-9]{7,8})+)-(([0-9kK]))$/;
+      const pattern = /^(([0-9]{7,8})+)(([0-9kK]))$/;
       return pattern.test(value) || "Su run debe seguir el patrón 12345678-k";
     },
     noBlankTextRequired: value => !!value || "Campo no debe quedar vacío",

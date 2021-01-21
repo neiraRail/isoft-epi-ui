@@ -83,6 +83,7 @@
           { title: 'Registro antecedente', icon: 'mdi-account-search-outline', to:"/" },
           { title: 'Registro de casos', icon: 'mdi-account-search-outline', to:"/" },
           { title: 'Ingresar nuevo paciente', icon: 'mdi-account-search-outline', to:"/" },
+          { title: 'Imprimir Formulario', icon: 'mdi-account-search-outline', to:"/imprimir-notificacion" }
         ],   
         
     }),
