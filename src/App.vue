@@ -6,6 +6,7 @@
       <router-link to="/buscar-establecimiento">Buscar Establecimiento</router-link> |
       <router-link to="/editar-establecimiento">Editar Establecimiento</router-link> |
       <router-link to="/borrar-establecimiento">Eliminar Establecimiento</router-link> |
+      <router-link to="/crear-region">Crear Región</router-link> |
 
     </div>
     <router-view/>

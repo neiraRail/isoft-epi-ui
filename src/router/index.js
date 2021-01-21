@@ -23,6 +23,11 @@ const routes = [
     path: '/crear-establecimiento',
     name: 'crear-establecimiento',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
+  },
+  {
+    path: '/crear-region',
+    name: 'crear-region',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearRegion.vue')
   }
 ]
 
