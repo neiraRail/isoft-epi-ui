@@ -1,25 +1,42 @@
 <template>
   <div id="app">
-      <p>hoal esta funcionando</p>
-      <AntecedenteEditor :antecedente="antecedente"/>
+    <p>Edición de Antecedente</p>
+    <AntecedenteEditor
+      :antecedente="antecedente"
+      @change="
+        (data) => {
+          antecedente = data;
+        }
+      "
+    />
   </div>
 </template>
 
 <script>
 import antecedenteService from "@/services/antecedentes.service";
 export default {
-
-  props:['Id'],
-  
+  props:["id"],
   data(){
-    return{
-      antecedente: null ,
-    }
+    return {
+      antecedente: {
+        paciente: {
+          pacRut: "paciente.pacRut",
+        },
+        antEmbarazo: "antEmbarazo",
+        antEnfermedadCronica: "antEnfermedadCronica",
+        antAlergias: "antAlergias",
+        antTipoSangre: "antTipoSangre",
+        antMedicamentos: "antMedicamentos",
+        antViajeExtranjero: "antViajeExtranjero",
+      },
+    };
   },
   methods: {
     fetchAntecedentes() {
-      antecedenteService.get(this.Id).then(response => (this.antecedente = response.data[0]));
-    }
+      antecedenteService
+        .get(this.id)
+        .then((response) => (this.antecedente = response.data));
+    },
   },
   components: {
     AntecedenteEditor:() => import("@/components/AntecedenteEditor")

@@ -1,14 +1,5 @@
 <template>
   <v-app>
-<<<<<<< HEAD
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/crear-antecedente">Crear Antecedente</router-link> |
-      <router-link to="/ver-antecedente">Ver Antecedente</router-link> |
-      <router-link to="/elegir-paciente">Editar</router-link>
-    </div>
-    <router-view/>
-=======
     <v-navigation-drawer color="#506d44" v-model="drawer" app>
       
        <div id="logo">
@@ -69,7 +60,6 @@
     </v-row>
     </v-footer>
 
->>>>>>> develop
   </v-app>
 </template>
 
@@ -79,24 +69,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-<<<<<<< HEAD
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #b9429f;
-    }
-  }
-}
-</style>
-=======
   color: #0b4614;
 }
 </style>
@@ -117,4 +89,3 @@
   }
 
 </script>
->>>>>>> develop

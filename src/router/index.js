@@ -19,7 +19,6 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-<<<<<<< HEAD
   },
   {
     path: '/ver-antecedente',
@@ -42,21 +41,18 @@ const routes = [
     path:"/elegir-paciente",
     name:"Elegir-paciente",
     component: () =>import(/* webpackChunkName: "about" */ '../views/ElegirPaciente.vue')
-  }
-
-
-=======
-  },{
+  },
+  {
     path: '/crear-paciente',
     name: 'Crear-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearPaciente.vue')
-  },{
+  },
+  {
     path: '/buscar-paciente',
     name: 'Buscar-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   },
   
->>>>>>> develop
 ]
 
 const router = new VueRouter({
