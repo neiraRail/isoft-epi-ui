@@ -20,9 +20,9 @@ const routes = [
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
   }, {
-    path: '/crear-establecimiento',
-    name: 'crear-establecimiento',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
+    path: '/vista-establecimiento',
+    name: 'vista-establecimiento',
+    component: () => import(/* webpackChunkName: "about" */ '../views/VistaEstablecimiento.vue')
   },
   {
     path: '/crear-region',
@@ -33,6 +33,11 @@ const routes = [
     path: '/crear-comuna',
     name: 'crear-comuna',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearComuna.vue')
+  }, 
+  {
+    path: '/crear-establecimiento',
+    name: 'crear-establecimiento',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
   }
 ]
 
