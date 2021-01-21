@@ -16,13 +16,14 @@
           dense
           outlined
           solo
-          placeholder="Ingrese el nombre del establecimiento."
-          v-model="establecimiento.estNombre"
-          type="text"
+          placeholder="Ingrese el nombre del establecimiento"
+          v-model="estFormulario.estNombre"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
-        />  </v-col>
-        <v-col cols="12" md="4">
+        />
+      </v-col>
+    
+      <v-col cols="12" md="4">
         <p>Dirección</p>
       </v-col>
       <v-col cols="12" md="8">
@@ -30,27 +31,30 @@
           dense
           outlined
           solo
-          placeholder="Ingrese la dirección del establecimiento."
-          v-model="establecimiento.estDireccion"
-          type="text"
+          placeholder="Ingrese la dirección del establecimiento"
+          v-model="estFormulario.estDireccion"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
-        /> </v-col>
-        <v-col cols="12" md="8">
+        />
+      </v-col>
+
+      <v-col cols="12" md="4">
+        <p>Comuna</p>
+      </v-col>
+      <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese la comuna del establecimiento."
-          v-model="establecimiento.estComuna.com_id"
-          type="text"
+          placeholder="Ingrese el id de la comuna"
+          v-model="estFormulario.estComuna"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
-        /> 
-
+        />
       </v-col>
+     
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="guardarEstablecimiento">Registrar Establecimiento</v-btn>
+        <v-btn @click="guardarEstablecimiento">Guardar Establecimiento</v-btn>
       </v-col>
     </v-row>
   </v-form>
@@ -61,25 +65,22 @@ import formRules from "@/common/formRules.js";
 import establecimientoService from "@/services/establecimiento.service";
 
 export default {
-  
   data() {
     return {
       estFormulario: {
-        comuna:{
+         comuna:{
           com_id:"",
         },
-        establecimiento:{
-          estNombre:"",
-          estDireccion:"",
-          estComuna:","
-        },
+        estNombre: "",
+        estDireccion: "",
+        estComuna: "",
       },
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-      
     };
   },
+
   methods: {
     
     guardarEstablecimiento() {
@@ -97,6 +98,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style>
