@@ -9,14 +9,15 @@
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
       <v-col cols="12" md="4">
-        <p>RUN</p>
+        <h3>RUN</h3>
+        <p>Ingrese el Run del paciente sin puntos ni guión. Si el DV es K ingrese 0</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su RUN"
+          placeholder="RUT"
           v-model="antFormulario.paciente.pacRut"
           type="number"
           validate-on-blur
@@ -25,7 +26,7 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Paciente esta Embarazada</p>
+        <h3>Marcar si paciente se encuentra embarazada</h3>
       </v-col>
       <v-col cols="12" md="8">
         <v-switch
@@ -35,7 +36,8 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Enfermedad crónica</p>
+        <h3>Enfermedades crónicas</h3>
+        <p>Ingresar enfermedades crónicas del pacienteseparadas por coma</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
@@ -49,14 +51,15 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Alergias</p>
+        <h3>Alergias</h3>
+        <p>Ingresar las alergias del paciente separadas por coma</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese si tiene alergias"
+          placeholder=" alergias"
           v-model="antFormulario.antAlergias"
           validate-on-blur
           
@@ -64,7 +67,7 @@
       </v-col>
       
       <v-col cols="12" md="4">
-        <p>Tipo de sangre</p>
+        <h3>Tipo de sangre</h3>
       </v-col>
       <v-col cols="12" md="8">
         <v-select
@@ -78,7 +81,8 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>medicamentos</p>
+        <h3>Medicamentos</h3>
+        <p>Ingresar Medicamentos consumidos por el paciente separadas por coma</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
@@ -91,14 +95,14 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Viaje al extranjero</p>
+        <h3>Viaje al extranjero</h3>
+        <p>Ingrese ciudad y país al que viajo el paciente si corresponde</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese la ciudad y país al que viajó"
           v-model="antFormulario.antViajeExtranjero"
           type="text"
         />

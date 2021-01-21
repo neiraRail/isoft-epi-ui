@@ -2,12 +2,12 @@
   <div>
     <v-row  justify="center" dense>
       <v-col cols="4" align-self="center">
-        <p style="text-align:center">Filtrar rut</p>
+        <p style="text-align:center">Buscar por RUT</p>
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Escriba el rut"
+          placeholder="Rut"
           v-model="rutFilter"
           type="number"
         />
@@ -39,35 +39,35 @@ export default {
 
         },
         {
-          text: "Paciente",
+          text: "Nombre",
           value: "paciente.pacNombres",
 
         },
         {
-          text: "",
+          text: "Apellidos",
           value: "paciente.pacApellidos",
 
         },
-        { text: "embarazo", 
+        { text: "Estado de embarazo", 
         value: "antEmbarazo" },
         {
-          text: "cronico",
+          text: "Enfermedades crónicas",
           value: "antEnfermedadCronica",
         },
         {
-          text: "alergias",
+          text: "Alergias",
           value: "antAlergias",
         },
         {
-          text: "sangre",
+          text: "Tipo de sangre",
           value: "antTipoSangre",
         },
         {
-          text: "meds",
+          text: "medicamentos",
           value: "antMedicamentos",
         },
         {
-          text: "viaje",
+          text: "Viaje al extranjero",
           value: "antViajeExtranjero",
         },
       ],
