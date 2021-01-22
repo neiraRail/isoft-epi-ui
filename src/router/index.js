@@ -19,7 +19,6 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-<<<<<<< HEAD
   },
   {
     path: '/ver-antecedente',
@@ -44,8 +43,6 @@ const routes = [
     component: () =>import(/* webpackChunkName: "about" */ '../views/ElegirPaciente.vue')
   },
   {
-=======
-  },{
     path: '/registro-paciente',
     name: 'registro-paciente',
     // route level code-splitting
@@ -56,7 +53,6 @@ const routes = [
     }
   }
   ,{
->>>>>>> develop
     path: '/crear-paciente',
     name: 'Crear-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearPaciente.vue')
