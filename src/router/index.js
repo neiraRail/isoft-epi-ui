@@ -19,7 +19,8 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-  }, {
+  },
+  {
     path: '/vista-establecimiento',
     name: 'vista-establecimiento',
     component: () => import(/* webpackChunkName: "about" */ '../views/VistaEstablecimiento.vue')
@@ -38,7 +39,28 @@ const routes = [
     path: '/crear-establecimiento',
     name: 'crear-establecimiento',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
+  },
+  {
+    path: '/registro-paciente',
+    name: 'registro-paciente',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/VistaRegistro.vue')
+    }
+  },
+  {
+    path: '/crear-paciente',
+    name: 'Crear-paciente',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearPaciente.vue')
+  },
+  {
+    path: '/buscar-paciente',
+    name: 'Buscar-paciente',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   }
+  
 ]
 
 const router = new VueRouter({
