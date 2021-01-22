@@ -76,22 +76,12 @@
     data: () => ({
        drawer: null,
        items: [
-<<<<<<< HEAD
-          { title: 'Home', icon: 'mdi-account-details', to:"/"  },
-          { title: 'Registro de Pacientes', icon: 'mdi-account-group', to:"/registro-paciente"},
-          { title: 'Registro de Establecimientos', icon: 'mdi-account-plus-outline', to:"/vista-establecimiento" },
-          { title: 'Registro antecedente', icon: 'mdi-account-search-outline', to:"/" },
-          { title: 'Registro de casos', icon: 'mdi-account-search-outline', to:"/" },
-          { title: 'Ingresar nuevo paciente', icon: 'mdi-account-search-outline', to:"/" },
-          { title: 'Imprimir Formulario', icon: 'mdi-account-search-outline', to:"/imprimir-notificacion" }
-=======
           { title: 'Home', icon: 'mdi-home', to:"/"  },
-          { title: 'Pacientes', icon: 'mdi-account-group', to:"/"},
-          { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/" },
+          { title: 'Pacientes', icon: 'mdi-account-group', to:"/registro-paciente"},
+          { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/vista-establecimiento" },
           { title: 'Antecedente', icon: 'mdi-file-outline', to:"/" },
           { title: 'Casos', icon: 'mdi-clipboard-outline', to:"/" },
           { title: ' PDF', icon: 'mdi-file-pdf', to:"/" },
->>>>>>> 4065e565d1ac243691abe8f1111c8ef1d1255e28
         ],   
         
     }),
