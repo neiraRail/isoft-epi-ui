@@ -7,8 +7,8 @@ const rules = {
       );
     },
     runPattern: value => {
-      const pattern = /^(([0-9]{7,8})+)-(([0-9kK]))$/;
-      return pattern.test(value) || "Su run debe seguir el patrón 12345678-k";
+      const pattern = /^([0-9]{7,8})+([0-9kK])$/;
+      return pattern.test(value) || "Su run debe seguir el patrón 123456780, si su run termina en K agregar un 0";
     },
     noBlankTextRequired: value => !!value || "Campo no debe quedar vacío",
     min: v =>
@@ -21,4 +21,4 @@ const rules = {
     (!!v && v >= 0 && v <=23) || "Horas van de 0 hrs a 23 hrs",
   }
   
-  export default rules;
+export default rules;
