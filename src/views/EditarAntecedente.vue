@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-        <router-link to="/crear-antecedente">Registrar Nuevo anetecedente</router-link> |
+        <router-link to="/crear-antecedente">Registrar Nuevo antecedente</router-link> |
         <router-link to="/elegir-paciente">Editar Antecedente</router-link> |
         <router-link to="/ver-antecedente">Registro de antecedentes</router-link> |
       </div>
