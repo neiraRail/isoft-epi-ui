@@ -48,8 +48,13 @@ export default {
           value: "paciente.pacApellidos",
 
         },
+        {
+          text: "Id", 
+          value: "antId" 
+        },
         { text: "Estado de embarazo", 
-        value: "antEmbarazo" },
+        value: "antEmbarazo" 
+        },
         {
           text: "Enfermedades crónicas",
           value: "antEnfermedadCronica",
