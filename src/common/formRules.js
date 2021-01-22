@@ -22,7 +22,3 @@ const rules = {
   }
   
   export default rules;
-<<<<<<< HEAD
-=======
-  
->>>>>>> develop
