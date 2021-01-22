@@ -21,6 +21,7 @@ const routes = [
     }
   },
   {
+<<<<<<< HEAD
     path: '/ver-antecedente',
     name: 'Ver-antecedete',
     component: () => import(/* webpackChunkName: "about" */ '../views/VerAntecedente.vue')
@@ -41,6 +42,26 @@ const routes = [
     path:"/elegir-paciente",
     name:"Elegir-paciente",
     component: () =>import(/* webpackChunkName: "about" */ '../views/ElegirPaciente.vue')
+=======
+    path: '/vista-establecimiento',
+    name: 'vista-establecimiento',
+    component: () => import(/* webpackChunkName: "about" */ '../views/VistaEstablecimiento.vue')
+  },
+  {
+    path: '/crear-region',
+    name: 'crear-region',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearRegion.vue')
+  },
+  {
+    path: '/crear-comuna',
+    name: 'crear-comuna',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearComuna.vue')
+  }, 
+  {
+    path: '/crear-establecimiento',
+    name: 'crear-establecimiento',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
+>>>>>>> develop
   },
   {
     path: '/registro-paciente',
@@ -51,8 +72,8 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/VistaRegistro.vue')
     }
-  }
-  ,{
+  },
+  {
     path: '/crear-paciente',
     name: 'Crear-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearPaciente.vue')
@@ -61,7 +82,7 @@ const routes = [
     path: '/buscar-paciente',
     name: 'Buscar-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
-  },
+  }
   
 ]
 

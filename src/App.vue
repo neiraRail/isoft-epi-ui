@@ -88,9 +88,15 @@
           */
           
           { title: 'Home', icon: 'mdi-home', to:"/"  },
+<<<<<<< HEAD
           { title: 'Pacientes', icon: 'mdi-account-group', to:"/"},
           { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/" },
           { title: 'Antecedente', icon: 'mdi-file-outline', to:"/ver-antecedente" },
+=======
+          { title: 'Pacientes', icon: 'mdi-account-group', to:"/registro-paciente"},
+          { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/vista-establecimiento" },
+          { title: 'Antecedente', icon: 'mdi-file-outline', to:"/" },
+>>>>>>> develop
           { title: 'Casos', icon: 'mdi-clipboard-outline', to:"/" },
           { title: ' PDF', icon: 'mdi-file-pdf', to:"/" },
           
