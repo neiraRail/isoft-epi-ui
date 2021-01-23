@@ -63,6 +63,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')
   },
   {
+    path: '/buscar-establecimiento',
+    name: 'buscar-establecimiento',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuscarEstablecimiento.vue')
+  },
+  {
     path: '/registro-paciente',
     name: 'registro-paciente',
     // route level code-splitting
