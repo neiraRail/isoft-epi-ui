@@ -10,7 +10,7 @@ const rules = {
       const pattern = /^(([0-9]{7,8})+)-(([0-9kK]))$/;
       return pattern.test(value) || "Su run debe seguir el patrón 12345678-k";
     },
-    noBlankTextRequired: value => !!value || "Campo no debe quedar vacío",
+    noBlankTextRequired: value => !!value || "Campo no debe quedar vacío *",
     min: v =>
       (!!v && v.length >= 8) || "Tu contraseña debe contener al menos 8 carácteres",
     passwordRequired: value => !!value || "Una contraseña es requerida",

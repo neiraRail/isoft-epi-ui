@@ -38,7 +38,16 @@ const routes = [
     name: 'Buscar-paciente',
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   },
-  
+  {
+    path: '/editar-paciente',
+    name: 'Editar-paciente',
+    component: () => import(/* webpackChunkName: "about" */'../views/EditarPaciente.vue')
+  },
+  {
+    path: '/eliminar-paciente',
+    name: 'eliminar-paciente',
+    component: () => import(/* webpackChunkName: "about" */'../views/EliminarPacienteV.vue')
+  },  
 ]
 
 const router = new VueRouter({

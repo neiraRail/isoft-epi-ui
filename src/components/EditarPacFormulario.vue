@@ -17,7 +17,7 @@
           outlined
           solo
           style="width:50%"
-          placeholder="Ingrese su RUT"
+          placeholder="Ingrese el rut a modificar"
           v-model="paciente.pacRut"
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -158,7 +158,7 @@
       </v-col>
 
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="guardarPaciente()">Registrar Paciente</v-btn>     
+        <v-btn @click="editarPaciente()">Editar Paciente</v-btn>     
       </v-col>
       <v-col cols="12" align="center" justify="center">
         <v-btn @click="cancelar()">Cancelar</v-btn>
@@ -197,9 +197,9 @@ export default {
   },
   methods: {
     
-    guardarPaciente() {
+    editarPaciente() {
       if (!this.$refs.form.validate()) return;
-      return pacienteService.create(this.paciente).then(
+      return pacienteService.update(this.paciente.pacRut,this.paciente).then(
         () => {
           this.$router.push({
             name: "registro-paciente",
