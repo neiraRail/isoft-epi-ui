@@ -58,6 +58,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearComuna.vue')
   }, 
   {
+    path: '/buscar-comuna',
+    name: 'buscar-comuna',
+    component: () => import(/* webpackChunkName: "about" */ '../views/BuscarComuna.vue')
+  }, 
+  {
     path: '/crear-establecimiento',
     name: 'crear-establecimiento',
     component: () => import(/* webpackChunkName: "about" */ '../views/CrearEstablecimiento.vue')

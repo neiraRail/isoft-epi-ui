@@ -5,8 +5,14 @@
       <router-link to="/buscar-establecimiento">Buscar Establecimiento</router-link> |
       <router-link to="/editar-establecimiento">Editar Establecimiento</router-link> |
       <router-link to="/borrar-establecimiento">Borrar Establecimiento</router-link> |
-      <router-link to="/crear-region">Crear Región</router-link> |
-      <router-link to="/crear-comuna">Crear Comuna</router-link> 
+      <router-link to="/crear-region">Registrar Región</router-link> |
+      <router-link to="/buscar-region">Buscar Región</router-link> |
+      <router-link to="/editar-region">Editar Región</router-link> |
+      <router-link to="/borrar-region">Borrar Región</router-link> |
+      <router-link to="/crear-comuna">Registrar Comuna</router-link> |
+      <router-link to="/buscar-comuna">Buscar Comuna</router-link> |
+      <router-link to="/editar-comuna">Editar Comuna</router-link> |
+      <router-link to="/borrar-comuna">Borrar Comuna</router-link> 
     </div>
     <router-view/>
   </v-app>
