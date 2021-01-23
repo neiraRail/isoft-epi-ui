@@ -2,18 +2,18 @@
   <div>
     <v-row  justify="center" dense>
       <v-col cols="4" align-self="center">
-        <p style="text-align:center">Buscar Comuna por ID</p>
+        <p style="text-align:center">Buscar Región por ID</p>
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese el ID de la comuna a buscar"
+          placeholder="Ingrese el ID de la region a buscar"
           v-model="idFilter"
           type="number"
         />
       </v-col>
     </v-row>
-    <v-data-table :headers="comunaHeaders" :items="comuna" class="elevation-1">
+    <v-data-table :headers="regionHeaders" :items="region" class="elevation-1">
     </v-data-table>
     
   </div>
@@ -23,15 +23,15 @@
 export default {
   props: {
     title: String,
-    comuna: { type: Array, default: () => {} },
+    region: { type: Array, default: () => {} },
   },
   data() {
     return {
       idFilter: "",
-      comunaHeaders: [
+      regionHeaders: [
         {
-          text: "ID Comuna",
-          value: "comuna.comId",
+          text: "ID Región",
+          value: "region.rgnId",
           filter: (value) => {
             if (!this.idFilter) return true;
             return value.toString().includes(this.idFilter.toString());
@@ -39,13 +39,9 @@ export default {
 
         },
         {
-          text: "Nombre Comuna",
-          value: "comuna.comNombre",
+          text: "Nombre Región",
+          value: "region.rgnNombre",
 
-        },
-        {
-          text: "ID Región",
-          value: "comuna.regionId",
         },
       ],
     };
