@@ -31,7 +31,7 @@
           outlined
           solo
           placeholder="Ingrese el nombre de la comuna"
-          v-model="comuna.comId"
+          v-model="comuna.comNombre"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -77,6 +77,7 @@ export default {
       mensajeError: "",
     };
   },
+  
   methods: {
     
     editarComuna() {
