@@ -9,7 +9,7 @@
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
       <v-col cols="12" md="4">
-        <p>ID Establecimiento</p>
+        <p>ID Región</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
@@ -17,7 +17,6 @@
           outlined
           solo
           style="width:50%"
-
           placeholder="Ingrese el ID del establecimiento a eliminar"
           v-model="establecimiento.rgnId"
           :rules="[formRules.noBlankTextRequired]"
@@ -37,13 +36,12 @@
 import formRules from "@/common/formRules.js";
 import regionService from "@/services/region.service";
 
-
 export default {
   data() {
     return {
       establecimiento: {
        regNombre: "",
-},
+    },
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",

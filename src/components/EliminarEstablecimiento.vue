@@ -17,9 +17,8 @@
           outlined
           solo
           style="width:50%"
-
           placeholder="Ingrese el ID del establecimiento a eliminar"
-          v-model="establecimiento.estId"
+          v-model="estId"
           :rules="[formRules.noBlankTextRequired]"
         />
       </v-col>
@@ -35,37 +34,22 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import establecimientoService from "@/services/establecimiento.service";
-
+import axios from "axios";
 
 export default {
   data() {
     return {
-      establecimiento: {
-       estId: "",
-       com_Id:"",
-       estNombre: "",
-       estDireccion: "",
-},
+      estId: "",
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-    
     };
   },
   methods: {
     
     eliminarEstablecimiento() {
-      if (!this.$refs.form.validate()) return;
-      return establecimientoService.destroy(this.establecimiento.estId).then(
-        () => {
-          this.$router.push({
-            name: "crear-establecimiento",
-          });
-        },
-        () => {
-          this.mensajeError="No se encuentra el establecimiento que desea borrar.";
-        }
+      axios.delete("http://localhost:8080/api/establecimiento/eliminar/" +
+          this.estId
       );
     },
   },
