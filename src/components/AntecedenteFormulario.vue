@@ -21,8 +21,8 @@
           v-model="antFormulario.paciente.pacRut"
           type="number"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
-
+          :rules="[formRules.noBlankTextRequired, formRules.runPattern]"
+          @input="soloRut"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -33,6 +33,21 @@
           v-model="antFormulario.antEmbarazo"
           :label="`${antFormulario.antEmbarazo.toString()}`"
           color="red"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <h3>Semanas de Gestación</h3>
+        <p>En caso de embarazo ingrese las semanas de gestación</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          type="number"
+          v-model="antFormulario.antSemanasGestacion"
+          validate-on-blur
+          @input="soloSemanasGestacion"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -121,6 +136,7 @@
 import formRules from "@/common/formRules.js";
 import antecedentesService from "@/services/antecedentes.service";
 
+
 export default {
   
   data() {
@@ -130,6 +146,7 @@ export default {
           pacRut:"",
         },
         antEmbarazo: false,
+        antSemanasGestacion:0,
         antEnfermedadCronica: "",
         antAlergias: "",
         antTipoSangre: "",
@@ -144,6 +161,29 @@ export default {
     };
   },
   methods: {
+    soloSemanasGestacion(){
+        this.$nextTick(() => {
+          if(this.antFormulario.antSemanasGestacion>42){
+            this.antFormulario.antSemanasGestacion=42
+          }
+          if(this.antFormulario.antSemanasGestacion<0){
+            this.antFormulario.antSemanasGestacion=0
+          }
+          if(!this.antFormulario.antEmbarazo){
+            this.antFormulario.antSemanasGestacion=0
+          }
+      });
+    },
+    soloRut(){
+      this.$nextTick(() => {
+        if(this.antFormulario.paciente.pacRut.length>9){
+            this.antFormulario.paciente.pacRut= this.antFormulario.paciente.pacRut.slice(
+            0,
+            9
+            );
+        }
+      });
+    },
     
     guardarAntecedente() {
       if (!this.$refs.form.validate()) return;
