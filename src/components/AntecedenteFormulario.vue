@@ -149,7 +149,7 @@ export default {
           pacRut:"",
         },
         antEmbarazo: false,
-        antSemanasGestacion:0,
+        antSemanasGest:0,
         antEnfermedadCronica: "",
         antAlergias: "",
         antTipoSangre: "",
@@ -166,14 +166,14 @@ export default {
   methods: {
     soloSemanasGestacion(){
         this.$nextTick(() => {
-          if(this.antFormulario.antSemanasGestacion>42){
-            this.antFormulario.antSemanasGestacion=42
+          if(this.antFormulario.antSemanasGest>42){
+            this.antFormulario.antSemanasGest=42
           }
-          if(this.antFormulario.antSemanasGestacion<0){
-            this.antFormulario.antSemanasGestacion=0
+          if(this.antFormulario.antSemanasGest<0){
+            this.antFormulario.antSemanasGest=0
           }
           if(!this.antFormulario.antEmbarazo){
-            this.antFormulario.antSemanasGestacion=0
+            this.antFormulario.antSemanasGest=0
           }
       });
     },
