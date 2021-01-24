@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: '/ver-antecedente',
-    name: 'Ver-antecedete',
+    name: 'Ver-antecedente',
     component: () => import(/* webpackChunkName: "about" */ '../views/VerAntecedente.vue')
   },
   {
@@ -128,6 +128,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   },
   {
+
+    path: '/editar-paciente',
+    name: 'Editar-paciente',
+    component: () => import(/* webpackChunkName: "about" */'../views/EditarPaciente.vue')
+  },
+  {
+    path: '/eliminar-paciente',
+    name: 'eliminar-paciente',
+    component: () => import(/* webpackChunkName: "about" */'../views/EliminarPacienteV.vue')
+  }, { 
     path: '/mostrar-caso',
     name: 'Mostrar-caso',
     component: () => import(/* webpackChunkName: "about" */ '../views/MostrarCaso.vue')
@@ -136,7 +146,7 @@ const routes = [
     path: '/agregar-caso',
     name: 'Agregar-caso',
     component: () => import(/* webpackChunkName: "about" */ '../views/AgregarCaso.vue')
-  }
+  },
 ]
 
 const router = new VueRouter({

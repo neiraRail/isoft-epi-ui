@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     fetchPacientes() {
-      pacienteService.getAll().then(response => (this.paciente = response.data));
+      pacienteService.get().then(response => (this.paciente = response.data));
     }
   },
   components: {
