@@ -1,28 +1,28 @@
 <template>
   <div id="home">
-      <PacienteTabla :paciente="paciente"/>
+      <RegionTabla :region="region"/>
   </div>
 </template>
 
 <script>
-import pacienteService from "@/services/paciente.service";
+import regionService from "@/services/region.service";
 export default {
   name: "home",
   data(){
     return{
-      paciente:[]
+      region:[]
     }
   },
   methods: {
-    fetchPacientes() {
-      pacienteService.get().then(response => (this.paciente = response.data));
+    fetchRegion() {
+      regionService.getAll().then(response => (this.region = response.data));
     }
   },
   components: {
-    PacienteTabla:() => import("@/components/PacienteTabla")
+    RegionTabla:() => import("@/components/RegionTabla")
   },
   mounted() {
-    this.fetchPacientes();
+    this.fetchRegion();
   }
 };
 </script>

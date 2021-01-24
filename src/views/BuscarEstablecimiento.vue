@@ -1,28 +1,28 @@
 <template>
   <div id="home">
-      <PacienteTabla :paciente="paciente"/>
+      <EstablecimientoTabla :establecimiento="establecimiento"/>
   </div>
 </template>
 
 <script>
-import pacienteService from "@/services/paciente.service";
+import establecimientoService from "@/services/establecimiento.service";
 export default {
   name: "home",
   data(){
     return{
-      paciente:[]
+      establecimiento:[]
     }
   },
   methods: {
-    fetchPacientes() {
-      pacienteService.get().then(response => (this.paciente = response.data));
+    fetchEstablecimiento() {
+      establecimientoService.getAll().then(response => (this.establecimiento = response.data));
     }
   },
   components: {
-    PacienteTabla:() => import("@/components/PacienteTabla")
+    EstablecimientoTabla:() => import("@/components/EstablecimientoTabla")
   },
   mounted() {
-    this.fetchPacientes();
+    this.fetchEstablecimiento();
   }
 };
 </script>
