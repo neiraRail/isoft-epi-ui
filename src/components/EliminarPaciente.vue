@@ -27,10 +27,10 @@
       <v-col cols="12" md="4" >
 
       <v-col cols="12" align="right" justify="right">
-        <v-btn @click="eliminarPaciente()">Eliminar</v-btn>     
+        <v-btn color="success" @click="eliminarPaciente()">Eliminar</v-btn>     
       </v-col>
       <v-col cols="12" align="right" justify="right">
-        <v-btn @click="cancelar()">Cancelar</v-btn>
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
       </v-col>
     </v-col>  
     </v-row>

@@ -158,10 +158,10 @@
       </v-col>
 
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="editarPaciente()">Editar Paciente</v-btn>     
+        <v-btn color="success" @click="editarPaciente()">Editar Paciente</v-btn>     
       </v-col>
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="cancelar()">Cancelar</v-btn>
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
       </v-col>
       
     </v-row>
