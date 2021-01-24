@@ -120,6 +120,9 @@
           solo
           v-model="antFormulario.antViajeExtranjero"
           type="text"
+          lugarPattern
+          validate-on-blur
+          :rules="[formRules.lugarPattern]"
         />
       </v-col>
       <v-col cols="12" align="center" justify="center">

@@ -6,6 +6,11 @@ const rules = {
         "Su correo debe seguir el patrón usuario@correo.com"
       );
     },
+    lugarPattern: value => {
+      const pattern = /^\s*[a-z\\sA-Z]*\s*,\s*[a-z\\sA-Z]*\s*$/;
+      return pattern.test(value) || "Su ubicación debe seguir el patrón ciudad, país y no contener números o símbolos";
+    
+    },
     runPattern: value => {
       const pattern = /^([0-9]{7,8})+([0-9kK])$/;
       return pattern.test(value) || "Su run debe seguir el patrón 123456780, si su run termina en K agregar un 0";
