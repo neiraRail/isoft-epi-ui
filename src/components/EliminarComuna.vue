@@ -16,9 +16,9 @@
           dense
           outlined
           solo
-          style="width:50%"
+          style="width:100%"
           placeholder="Ingrese el ID de la comuna a eliminar"
-          v-model="comuna.comId"
+          v-model="comId"
           :rules="[formRules.noBlankTextRequired]"
         />
       </v-col>
@@ -34,16 +34,13 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import comunaService from "@/services/comuna.service";
+import axios from "axios";
 
 
 export default {
   data() {
     return {
-      comuna: {
-      comNombre: "",
-      regionId: "",
-    },
+      comId: "",
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
@@ -53,16 +50,8 @@ export default {
   methods: {
     
     eliminarComuna() {
-      if (!this.$refs.form.validate()) return;
-      return comunaService.destroy(this.comuna.comId).then(
-        () => {
-          this.$router.push({
-            name: "crear-comuna",
-          });
-        },
-        () => {
-          this.mensajeError="No se encuentra el comuna que desea borrar.";
-        }
+      axios.delete("http://localhost:8080/api/comuna/eliminar/" +
+          this.comId
       );
     },
   },
