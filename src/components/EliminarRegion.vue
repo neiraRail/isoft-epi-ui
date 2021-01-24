@@ -18,7 +18,7 @@
           solo
           style="width:50%"
           placeholder="Ingrese el ID del establecimiento a eliminar"
-          v-model="establecimiento.rgnId"
+          v-model="rgnId"
           :rules="[formRules.noBlankTextRequired]"
         />
       </v-col>
@@ -34,33 +34,22 @@
 
 <script>
 import formRules from "@/common/formRules.js";
-import regionService from "@/services/region.service";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      establecimiento: {
-       regNombre: "",
-    },
+      rgnId: "",
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-    
     };
   },
   methods: {
     
     eliminarRegion() {
-      if (!this.$refs.form.validate()) return;
-      return regionService.destroy(this.establecimiento.rgnId).then(
-        () => {
-          this.$router.push({
-            name: "crear-region",
-          });
-        },
-        () => {
-          this.mensajeError="No se encuentra la región que desea borrar.";
-        }
+      axios.delete("http://localhost:8080/api/region/eliminar/" +
+          this.rgnId
       );
     },
   },
