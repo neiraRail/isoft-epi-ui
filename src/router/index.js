@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: '/ver-antecedente',
-    name: 'Ver-antecedete',
+    name: 'Ver-antecedente',
     component: () => import(/* webpackChunkName: "about" */ '../views/VerAntecedente.vue')
   },
   {

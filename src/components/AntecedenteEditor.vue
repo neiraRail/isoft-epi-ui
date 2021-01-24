@@ -100,7 +100,10 @@
         />
       </v-col>
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="guardarAntecedente">Guardar</v-btn>
+        <v-btn color="success"  @click="guardarAntecedente">Guardar</v-btn>
+      </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
       </v-col>
     </v-row>
   </v-form>
@@ -160,6 +163,12 @@ export default {
         }
       );
     },
+     cancelar(){
+      this.$router.push({
+            name: 'Ver-antecedente',
+          });
+    },
+    
   },
 };
 </script>
