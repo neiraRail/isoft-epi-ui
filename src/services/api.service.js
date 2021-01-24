@@ -11,7 +11,7 @@ const apiService = {
   post(route, { params = " ", slug = "" }) {
     //this.setHeader();
     return swisApi.post(`${route}/${slug}`, params).catch(error => {
-      throw new Error(`ApiService Error: ${error}`);
+      throw new Error(`Hola: ${error}`);
     });
   },
   update(route, { params = " ", slug = "" }) {
