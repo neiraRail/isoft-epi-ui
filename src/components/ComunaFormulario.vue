@@ -39,6 +39,9 @@
       <v-col cols="12" align="center" justify="center">
         <v-btn @click="guardarRegion">Guardar Comuna</v-btn>
       </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
+      </v-col>
     </v-row>
   </v-form>
 </template>
@@ -64,6 +67,11 @@ export default {
         "http://localhost:8080/api/region/agregar/?nombre="+
         this.comNombre + "&regionId=" + this.regionId
       );
+    },
+    cancelar(){
+      this.$router.push({
+            name: "vista-establecimiento",
+          });
     },
   },
 };
