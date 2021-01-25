@@ -15,7 +15,9 @@
     </v-row>
     <v-data-table :headers="pacienteHeaders" :items="paciente" class="elevation-1">
     </v-data-table>
-    
+     <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
+      </v-col>
   </div>
 </template>
 
@@ -77,7 +79,14 @@ export default {
       ],
     };
   },
-};
+
+ methods: {
+    cancelar(){
+      this.$router.push({
+            name: "registro-paciente",
+          });
+    },
+  },};
 </script>
 
 <style>
