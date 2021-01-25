@@ -27,6 +27,10 @@
       <v-col cols="12" align="center" justify="center">
         <v-btn @click="eliminarRegion()">Eliminar</v-btn>     
       </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
+      </v-col>
+
     </v-col>  
     </v-row>
   </v-form>
@@ -51,6 +55,11 @@ export default {
       axios.delete("http://localhost:8080/api/region/eliminar/" +
           this.rgnId
       );
+    },
+    cancelar(){
+      this.$router.push({
+            name: "vista-establecimiento",
+          });
     },
   },
 };

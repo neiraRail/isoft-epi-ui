@@ -56,6 +56,9 @@
       <v-col cols="12" align="center" justify="center">
         <v-btn @click="guardarEstablecimiento">Guardar Establecimiento</v-btn>
       </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
+      </v-col>
     </v-row>
   </v-form>
 </template>
@@ -86,6 +89,11 @@ export default {
           "/" +
           this.com_Id
       );
+    },
+    cancelar(){
+      this.$router.push({
+            name: "vista-establecimiento",
+          });
     },
   },
 };

@@ -1,6 +1,6 @@
 import ApiService from "@/services/api.service";
 
-const url = "pacientes";
+const url = "paciente";
 export const service = {
     getAll() {
         return ApiService.get(url, { id: "" });
