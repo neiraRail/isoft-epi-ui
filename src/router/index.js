@@ -128,7 +128,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/BuscarPaciente.vue')
   },
   {
-
     path: '/editar-paciente',
     name: 'Editar-paciente',
     component: () => import(/* webpackChunkName: "about" */'../views/EditarPaciente.vue')
@@ -147,6 +146,11 @@ const routes = [
     name: 'Agregar-caso',
     component: () => import(/* webpackChunkName: "about" */ '../views/AgregarCaso.vue')
   },
+  {
+    path: '/imprimir-notificacion',
+    name: 'Imprimir-notificacion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ImprimirNotificacion.vue')
+  }
 ]
 
 const router = new VueRouter({
