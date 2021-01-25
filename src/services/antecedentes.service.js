@@ -11,7 +11,7 @@ export const service = {
         return ApiService.post(url, { params: params });
     },
     update( params) {
-        return ApiService.update(url+"/editar", { params: params });
+        return ApiService.update(url, { params: params });
     },
     destroy(id) {
         return ApiService.delete(url, { id: id });
