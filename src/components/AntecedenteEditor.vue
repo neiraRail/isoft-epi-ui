@@ -17,7 +17,6 @@
           dense
           outlined
           solo
-          placeholder="RUT"
           v-model="antFormulario.antId"
           type="number"
           validate-on-blur
