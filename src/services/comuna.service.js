@@ -11,10 +11,10 @@ export const service = {
         return ApiService.post(url, { params: params });
     },
     update(id, params) {
-        return ApiService.update(url, { id: id, params: params });
+        return ApiService.update(url+"/"+id, { id: id, params: params });
     },
     destroy(id) {
-        return ApiService.delete(url, { id: id });
+        return ApiService.delete(url+"/"+id, { id: id });
     },
 };
 export default service;

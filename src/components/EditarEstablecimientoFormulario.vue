@@ -4,10 +4,24 @@
     v-model="esEstFormularioValido"
     lazy-validation
     class="justify-center"
-    style="margin: 2% 15%"
+    style="margin: 2% 20%"
   >
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
+      <v-col cols="12" md="4">
+        <p>ID Establecimiento</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          style="width:50%"
+          placeholder="Ingrese el ID del establecimiento que desea editar"
+          v-model="establecimiento.estId"
+          :rules="[formRules.noBlankTextRequired]"
+        />
+      </v-col>
       <v-col cols="12" md="4">
         <p>Nombre</p>
       </v-col>
@@ -17,7 +31,7 @@
           outlined
           solo
           placeholder="Ingrese el nombre del establecimiento"
-          v-model="estNombre"
+          v-model="establecimiento.estNombre"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -32,7 +46,7 @@
           outlined
           solo
           placeholder="Ingrese la dirección del establecimiento"
-          v-model="estDireccion"
+          v-model="establecimiento.estDireccion"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
@@ -47,18 +61,20 @@
           outlined
           solo
           placeholder="Ingrese el id de la comuna"
-          v-model="com_Id"
+          v-model="establecimiento.com_Id"
           validate-on-blur
           :rules="[formRules.noBlankTextRequired]"
         />
       </v-col>
-     
+
+      <v-col cols="12" md="4" >
       <v-col cols="12" align="center" justify="center">
-        <v-btn @click="guardarEstablecimiento">Guardar Establecimiento</v-btn>
+        <v-btn @click="editarEstablecimiento()">Editar</v-btn>     
       </v-col>
       <v-col cols="12" align="center" justify="center">
         <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
       </v-col>
+    </v-col>  
     </v-row>
   </v-form>
 </template>
@@ -70,24 +86,23 @@ import axios from "axios";
 export default {
   data() {
     return {
-      com_Id:"",
+      establecimiento: {
+      estId: "",
       estNombre: "",
       estDireccion: "",
+      com_Id:"",
+      },
+     
       esEstFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
     };
   },
-
   methods: {
-      guardarEstablecimiento() {
-      axios.post(
-        "http://localhost:8080/api/establecimiento/agregar/" +
-          this.estNombre +
-          "/" +
-          this.estDireccion +
-          "/" +
-          this.com_Id
+    
+    editarEstablecimiento() {
+      axios.put("http://localhost:8080/api/establecimiento/editar/" +
+          this.establecimiento.estId, this.establecimiento
       );
     },
     cancelar(){
@@ -97,8 +112,7 @@ export default {
     },
   },
 };
-
 </script>
-
 <style>
 </style>
+
