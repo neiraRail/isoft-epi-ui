@@ -7,7 +7,7 @@ const rules = {
       );
     },
     lugarPattern: value => {
-      const pattern = /^\s*[a-z\\sA-Z]*\s*,\s*[a-z\\sA-Z]*\s*$/;
+      const pattern = /^$|^\s*[a-z\\sA-Z]*\s*,\s*[a-z\\sA-Z]*\s*$/;
       return pattern.test(value) || "Su ubicación debe seguir el patrón ciudad, país y no contener números o símbolos";
     
     },
