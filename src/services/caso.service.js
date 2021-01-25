@@ -1,6 +1,5 @@
 import ApiService from "@/services/api.service";
-
-const url = "paciente";
+const url = "casos";
 export const service = {
     getAll() {
         return ApiService.get(url, { id: "" });
@@ -11,11 +10,11 @@ export const service = {
     create(params) {
         return ApiService.post(url, { params: params });
     },
-    update(id, params) {
-        return ApiService.update(url+"/editar"+"/"+id, { id: id, params: params });
+    update(params , id) {
+        return ApiService.update(url, { id: id, params: params });
     },
     destroy(id) {
-        return ApiService.delete(url+"/eliminar"+"/"+id, { id: id });
+        return ApiService.delete(url, { id: id });
     },
 };
 export default service;

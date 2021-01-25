@@ -1,28 +1,28 @@
 <template>
   <div id="home">
-      <PacienteTabla :paciente="paciente"/>
+      <ComunaTabla :comuna="comuna"/>
   </div>
 </template>
 
 <script>
-import pacienteService from "@/services/paciente.service";
+import comunaService from "@/services/comuna.service";
 export default {
   name: "home",
   data(){
     return{
-      paciente:[]
+      comuna:[]
     }
   },
   methods: {
-    fetchPacientes() {
-      pacienteService.get().then(response => (this.paciente = response.data));
+    fetchComuna() {
+      comunaService.getAll().then(response => (this.comuna = response.data));
     }
   },
   components: {
-    PacienteTabla:() => import("@/components/PacienteTabla")
+    ComunaTabla:() => import("@/components/ComunaTabla")
   },
   mounted() {
-    this.fetchPacientes();
+    this.fetchComuna();
   }
 };
 </script>

@@ -1,0 +1,177 @@
+<template>
+ <v-form
+    ref="form"
+    v-model="esAntFormularioValido"
+    lazy-validation
+    class="justify-center"
+    style="margin: 2% 15%"
+  >
+    <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
+    <v-row>
+      <v-col cols="12" md="4">
+        <p>RUN</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su RUN"
+          v-model="antFormulario.paciente.pacRut"
+          type="number"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Paciente esta Embarazada</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-switch
+          v-model="antFormulario.antEmbarazo"
+          :label="`${antFormulario.antEmbarazo.toString()}`"
+          color="red"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Enfermedad crónica</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese si tiene una enfermedad crónica"
+          v-model="antFormulario.antEnfermedadCronica"
+          validate-on-blur
+          
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Alergias</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese si tiene alergias"
+          v-model="antFormulario.antAlergias"
+          validate-on-blur
+          
+        />
+      </v-col>
+      
+      <v-col cols="12" md="4">
+        <p>sangre</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su tipo sangre"
+          v-model="antFormulario.antTipoSangre"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>medicamentos</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su medicamentos"
+          v-model="antFormulario.antMedicamentos"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <p>Viaje alExtranjero</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          placeholder="Ingrese su viaje"
+          v-model="antFormulario.antViajeExtranjero"
+          type="text"
+        />
+      </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="success"  @click="guardarAntecedente">Guardar</v-btn>
+      </v-col>
+      <v-col cols="12" align="center" justify="center">
+        <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
+      </v-col>
+    </v-row>
+  </v-form>
+</template>
+
+<script>
+
+import formRules from "@/common/formRules.js";
+import antecedentesService from "@/services/antecedentes.service";
+
+export default {
+  mounted(){
+    this.antFormulario = this.antecedente;
+  },
+  watch:{
+    antFormulario(){
+      this.$emit("change",this.antecedente)
+    }
+  },
+  props: {
+    title: String,
+    antecedente: { type: Object, default: () => {} },
+  },
+  data() {
+    return {
+      antFormulario: {
+        antId:"antId",
+        paciente:{
+          pacRut:"paciente.pacRut",
+        },
+        antEmbarazo: "antEmbarazo",
+        antEnfermedadCronica: "antEnfermedadCronica",
+        antAlergias: "antAlergias",
+        antTipoSangre: "antTipoSangre",
+        antMedicamentos: "antMedicamentos",
+        antViajeExtranjero: "antViajeExtranjero",
+
+      },
+      esAntFormularioValido: "",
+      formRules: formRules,
+      mensajeError: "",
+    
+    };
+
+  },
+  methods: {
+    guardarAntecedente() {
+      if (!this.$refs.form.validate()) return;
+      return antecedentesService.create(this.antFormulario).then(
+        () => {
+          this.$router.push({
+            name: "Ver-antecedete",
+          });
+        },
+        (error) => {
+          this.mensajeError = error.message;
+        }
+      );
+    },
+     cancelar(){
+      this.$router.push({
+            name: 'Ver-antecedente',
+          });
+    },
+    
+  },
+};
+</script>
+
+<style>
+</style>

@@ -7,10 +7,10 @@ const rules = {
       );
     },
     runPattern: value => {
-      const pattern = /^(([0-9]{7,8})+)(([0-9kK]))$/;
-      return pattern.test(value) || "Su run debe seguir el patrón 12345678-k";
+      const pattern = /^([0-9]{7,8})+([0-9kK])$/;
+      return pattern.test(value) || "Su run debe seguir el patrón 123456780, si su run termina en K agregar un 0";
     },
-    noBlankTextRequired: value => !!value || "Campo no debe quedar vacío",
+    noBlankTextRequired: value => !!value || "Campo no debe quedar vacío *",
     min: v =>
       (!!v && v.length >= 8) || "Tu contraseña debe contener al menos 8 carácteres",
     passwordRequired: value => !!value || "Una contraseña es requerida",
@@ -21,5 +21,4 @@ const rules = {
     (!!v && v >= 0 && v <=23) || "Horas van de 0 hrs a 23 hrs",
   }
   
-  export default rules;
-  
+export default rules;
