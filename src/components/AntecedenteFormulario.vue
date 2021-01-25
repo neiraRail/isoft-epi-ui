@@ -45,7 +45,7 @@
           outlined
           solo
           type="number"
-          v-model="antFormulario.antSemanasGestacion"
+          v-model="antFormulario.antSemanasGest"
           validate-on-blur
           @input="soloSemanasGestacion"
         />
@@ -141,7 +141,6 @@ import antecedentesService from "@/services/antecedentes.service";
 
 
 export default {
-  
   data() {
     return {
       antFormulario: {
@@ -149,7 +148,7 @@ export default {
           pacRut:"",
         },
         antEmbarazo: false,
-        antSemanasGest:0,
+        antSemanasGest: 0,
         antEnfermedadCronica: "",
         antAlergias: "",
         antTipoSangre: "",

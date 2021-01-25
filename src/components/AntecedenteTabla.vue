@@ -56,7 +56,7 @@ export default {
         value: "antEmbarazo" 
         },
         { text: "Semanas de Embarazo", 
-        value: "antSemanaGest" 
+          value: "antSemanasGest" 
         },
         {
           text: "Enfermedades crónicas",
