@@ -125,7 +125,6 @@
           solo
           v-model="antFormulario.antViajeExtranjero"
           type="text"
-          lugarPattern
           validate-on-blur
           :rules="[formRules.lugarPattern]"
         />
@@ -206,7 +205,7 @@ export default {
      cancelar(){
       this.$router.push({
             name: 'Ver-antecedente',
-          });
+      });
     },
     
   },
