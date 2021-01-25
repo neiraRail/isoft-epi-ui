@@ -26,8 +26,9 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="4">
-        <h2 style="color:red;">Ingrese valor(es) solo en los campo(s) que desea editar</h2>
+      <v-col>
+        <br>
+        <h2 style="color:red;">Ingrese valor(es) solo en los campo(s) que desea editar</h2><br>
       </v-col>
     </v-row>
     <v-row>
