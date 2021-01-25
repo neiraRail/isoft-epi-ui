@@ -10,8 +10,8 @@ export const service = {
     create(params) {
         return ApiService.post(url, { params: params });
     },
-    update(id, params) {
-        return ApiService.update(url+"/editar", { id: id, params: params });
+    update( params) {
+        return ApiService.update(url+"/editar", { params: params });
     },
     destroy(id) {
         return ApiService.delete(url, { id: id });
