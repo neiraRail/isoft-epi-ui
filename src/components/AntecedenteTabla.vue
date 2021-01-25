@@ -55,6 +55,9 @@ export default {
         { text: "Estado de embarazo", 
         value: "antEmbarazo" 
         },
+        { text: "Semanas de Embarazo", 
+        value: "antSemanaGest" 
+        },
         {
           text: "Enfermedades crónicas",
           value: "antEnfermedadCronica",
