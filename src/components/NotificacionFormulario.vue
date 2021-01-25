@@ -8,17 +8,19 @@
   >
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
-      <v-col cols="1" md="12"><h2 style="color:#0b4614;" >Ingrese el run del paciente</h2></v-col>
+      <v-col cols="1" md="12"
+        ><h2 style="color:#0b4614;">Ingrese el run del paciente</h2></v-col
+      >
       <v-col cols="1" md="100"><p>Run:</p></v-col>
       <v-text-field
         outlined
         placeholder="Aquí se debe ingresar el run sin puntos ni guión"
         v-model="formRut"
         validate-on-blur
-        :rules="[formRules.noBlankTextRequired,formRules.runPattern]"
+        :rules="[formRules.noBlankTextRequired, formRules.runPattern]"
       />
       <v-col cols="12" md="0">
-        <v-btn @click="imprimirNotificacion()">Imprimir Notificación</v-btn>  
+        <v-btn @click="imprimirNotificacion()">Descargar reporte</v-btn>
         <v-col cols="1" md="1"></v-col>
       </v-col>
     </v-row>
@@ -28,25 +30,36 @@
 <script>
 import formRules from "@/common/formRules.js";
 import axios from "axios";
+
 export default {
   data() {
     return {
-      formRut:"",
+      formRut: "",
       FormularioValido: "",
       formRules: formRules,
       mensajeError: "",
     };
   },
+
   methods: {
-    imprimirNotificacion(){
-      axios.get(
-        "http://localhost:8080/pdf/exportar/" +
-          this.formRut+"/"
-      )
-    }
+    imprimirNotificacion() {
+      axios('http://localhost:8080/pdf/exportar/'+this.formRut+'/', {
+    method: 'GET',
+    responseType: 'blob'
+})
+.then(response => {
+    const file = new Blob(
+    [response.data], 
+    {type: 'application/pdf'});
+    const fileURL = URL.createObjectURL(file);
+    window.open(fileURL);
+})
+.catch(error => {
+    console.log(error);
+});
+    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
