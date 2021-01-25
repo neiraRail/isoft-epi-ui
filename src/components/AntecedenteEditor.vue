@@ -146,18 +146,6 @@ import formRules from "@/common/formRules.js";
 import antecedentesService from "@/services/antecedentes.service";
 
 export default {
-  mounted(){
-    this.antFormulario = this.antecedente;
-  },
-  watch:{
-    antFormulario(){
-      this.$emit("change",this.antecedente)
-    }
-  },
-  props: {
-    title: String,
-    antecedente: { type: Object, default: () => {} },
-  },
   data() {
     return {
       antFormulario: {
