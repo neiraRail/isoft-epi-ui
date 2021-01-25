@@ -81,7 +81,7 @@
           { title: 'Pacientes', icon: 'mdi-account-group', to:"/registro-paciente"},
           { title: 'Establecimientos', icon: 'mdi-office-building-outline', to:"/vista-establecimiento" },
           { title: 'Casos', icon: 'mdi-clipboard-outline', to:"/mostrar-caso" },
-          { title: ' PDF', icon: 'mdi-file-pdf', to:"/" },
+          { title: ' PDF', icon: 'mdi-file-pdf', to:"/imprimir-notificacion" },
           
         ],   
         

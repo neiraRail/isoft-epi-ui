@@ -19,7 +19,7 @@
           style="width:50%"
           placeholder="Ingrese su RUT"
           v-model="paciente.pacRut"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.runPatternLong]"
         />
       </v-col>
       <v-col cols="12" md="4" >
@@ -34,7 +34,7 @@
           placeholder="Ingrese su nombre"
           v-model="paciente.pacNombres"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.validarTexto,formRules.noBlankTextRequired]"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -49,7 +49,7 @@
           placeholder="Ingrese sus Apellidos"
           v-model="paciente.pacApellidos"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.noBlankTextRequired,formRules.validarTexto]"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -64,7 +64,7 @@
           placeholder="Ingrese su direccion"
           v-model="paciente.pacDireccion"
           validate-on-blur
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.validarTextoyNumero,formRules.noBlankTextRequired]"
           
         />
       </v-col>
@@ -80,7 +80,7 @@
           placeholder="Ingrese su nacionalidad"
           v-model="paciente.pacNacionalidad"
           type="text"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.noBlankTextRequired,formRules.validarTexto]"
         />
       </v-col>
       <v-col cols="12" md="4">
@@ -95,7 +95,7 @@
           placeholder="Ingrese su pueblo originario"
           v-model="paciente.pacPuebloOriginario"
           type="text"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.noBlankTextRequired,formRules.validarTexto]"
         />
       </v-col>
        <v-col cols="12" md="4">
@@ -110,7 +110,7 @@
           placeholder="Ingrese su fecha de nacimiento"
           v-model="paciente.pacFechaNacimiento"
           type="text"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.validarFecha]"
         />
       </v-col>
        <v-col cols="12" md="4">
@@ -139,7 +139,7 @@
           placeholder="Ingrese su genero"
           v-model="paciente.pacSexo"
           type="text"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.validarSexo,formRules.noBlankTextRequired]"
         />
       </v-col> <v-col cols="12" md="4">
         <p>Telefono</p>

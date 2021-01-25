@@ -21,7 +21,7 @@
 
           placeholder="Ingrese el rut a eliminar"
           v-model="paciente.pacRut"
-          :rules="[formRules.noBlankTextRequired]"
+          :rules="[formRules.runPatternLong]"
         />
       </v-col>
       <v-col cols="12" md="4" >
