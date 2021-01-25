@@ -1,5 +1,5 @@
 <template>
- <v-form
+  <v-form
     ref="form"
     v-model="esAntFormularioValido"
     lazy-validation
@@ -9,20 +9,30 @@
     <v-alert type="error" v-if="mensajeError">{{ mensajeError }}</v-alert>
     <v-row>
       <v-col cols="12" md="4">
-        <p>RUN</p>
+        <h3>ID</h3>
+        <p>Ingrese el Id del antecedente que desea editar</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su RUN"
-          v-model="antFormulario.paciente.pacRut"
+          placeholder="RUT"
+          v-model="antFormulario.antId"
           type="number"
+          validate-on-blur
+          :rules="[formRules.noBlankTextRequired]"
         />
       </v-col>
+    </v-row>
+    <v-row>
       <v-col cols="12" md="4">
-        <p>Paciente esta Embarazada</p>
+        <h2 style="color:red;">Ingrese valor(es) solo en los campo(s) que desea editar</h2>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" md="4">
+        <h3>Marcar si paciente se encuentra embarazada</h3>
       </v-col>
       <v-col cols="12" md="8">
         <v-switch
@@ -32,28 +42,45 @@
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Enfermedad crónica</p>
+        <h3>Semanas de Gestación</h3>
+        <p>En caso de embarazo ingrese las semanas de gestación</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese si tiene una enfermedad crónica"
+          type="number"
+          v-model="antFormulario.antSemanasGest"
+          validate-on-blur
+          @input="soloSemanasGestacion"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <h3>Enfermedades crónicas</h3>
+        <p>Ingresar enfermedades crónicas del pacienteseparadas por coma</p>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          dense
+          outlined
+          solo
+          
           v-model="antFormulario.antEnfermedadCronica"
           validate-on-blur
           
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Alergias</p>
+        <h3>Alergias</h3>
+        <p>Ingresar las alergias del paciente separadas por coma</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese si tiene alergias"
+      
           v-model="antFormulario.antAlergias"
           validate-on-blur
           
@@ -61,46 +88,50 @@
       </v-col>
       
       <v-col cols="12" md="4">
-        <p>sangre</p>
+        <h3>Tipo de sangre</h3>
       </v-col>
       <v-col cols="12" md="8">
-        <v-text-field
-          dense
-          outlined
-          solo
-          placeholder="Ingrese su tipo sangre"
-          v-model="antFormulario.antTipoSangre"
-          type="text"
+        <v-select
+        :items="tiposSangre"
+        v-model="antFormulario.antTipoSangre"
+        label= "Tipo de Sangre"
+        outlined
+    
+
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>medicamentos</p>
+        <h3>Medicamentos</h3>
+        <p>Ingresar Medicamentos consumidos por el paciente separadas por coma</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su medicamentos"
+      
           v-model="antFormulario.antMedicamentos"
           type="text"
         />
       </v-col>
       <v-col cols="12" md="4">
-        <p>Viaje alExtranjero</p>
+        <h3>Viaje al extranjero</h3>
+        <p>Ingrese ciudad y país al que viajo el paciente si corresponde</p>
       </v-col>
       <v-col cols="12" md="8">
         <v-text-field
           dense
           outlined
           solo
-          placeholder="Ingrese su viaje"
           v-model="antFormulario.antViajeExtranjero"
           type="text"
+          lugarPattern
+          validate-on-blur
+          :rules="[formRules.lugarPattern]"
         />
       </v-col>
       <v-col cols="12" align="center" justify="center">
-        <v-btn color="success"  @click="guardarAntecedente">Guardar</v-btn>
+        <v-btn  color="success" @click="guardarAntecedente">Guardar</v-btn>
       </v-col>
       <v-col cols="12" align="center" justify="center">
         <v-btn color="error" @click="cancelar()">Cancelar</v-btn>
@@ -130,29 +161,50 @@ export default {
   data() {
     return {
       antFormulario: {
-        antId:"antId",
-        paciente:{
-          pacRut:"paciente.pacRut",
-        },
-        antEmbarazo: "antEmbarazo",
-        antEnfermedadCronica: "antEnfermedadCronica",
-        antAlergias: "antAlergias",
-        antTipoSangre: "antTipoSangre",
-        antMedicamentos: "antMedicamentos",
-        antViajeExtranjero: "antViajeExtranjero",
+        antId:"",
+        antEmbarazo: "",
+        antSemanasGest: null,
+        antEnfermedadCronica: "",
+        antAlergias: "",
+        antTipoSangre: "",
+        antMedicamentos: "",
+        antViajeExtranjero: "",
 
       },
       esAntFormularioValido: "",
       formRules: formRules,
       mensajeError: "",
-    
+      tiposSangre:['','O-','O+','A-','A+','B-','B+','AB-','AB+',],
     };
 
   },
   methods: {
+     soloSemanasGestacion(){
+        this.$nextTick(() => {
+          if(this.antFormulario.antSemanasGest>42){
+            this.antFormulario.antSemanasGest=42
+          }
+          if(this.antFormulario.antSemanasGest<0){
+            this.antFormulario.antSemanasGest=0
+          }
+          if(!this.antFormulario.antEmbarazo){
+            this.antFormulario.antSemanasGest=0
+          }
+      });
+    },
+    soloRut(){
+      this.$nextTick(() => {
+        if(this.antFormulario.paciente.pacRut.length>9){
+            this.antFormulario.paciente.pacRut= this.antFormulario.paciente.pacRut.slice(
+            0,
+            9
+            );
+        }
+      });
+    },
     guardarAntecedente() {
       if (!this.$refs.form.validate()) return;
-      return antecedentesService.create(this.antFormulario).then(
+      return antecedentesService.update(this.antFormulario).then(
         () => {
           this.$router.push({
             name: "Ver-antecedete",

@@ -2,53 +2,20 @@
   <div id="app">
     <div id="nav">
         <router-link to="/crear-antecedente">Registrar Nuevo antecedente</router-link> |
-        <router-link to="/elegir-paciente">Editar Antecedente</router-link> |
+        <router-link to="/editar-antecedente">Editar Antecedente</router-link> |
         <router-link to="/ver-antecedente">Registro de antecedentes</router-link> |
       </div>
     <br><h1>Edición Antecedente Clínico</h1> <br>
-    <AntecedenteEditor
-      :antecedente="antecedente"
-      @change="
-        (data) => {
-          antecedente = data;
-        }
-      "
-    />
+    <AntecedenteEditor/>
   </div>
 </template>
 
 <script>
-import antecedenteService from "@/services/antecedentes.service";
+
 export default {
-  props:["id"],
-  data(){
-    return {
-      antecedente: {
-        paciente: {
-          pacRut: "paciente.pacRut",
-        },
-        antEmbarazo: "antEmbarazo",
-        antEnfermedadCronica: "antEnfermedadCronica",
-        antAlergias: "antAlergias",
-        antTipoSangre: "antTipoSangre",
-        antMedicamentos: "antMedicamentos",
-        antViajeExtranjero: "antViajeExtranjero",
-      },
-    };
-  },
-  methods: {
-    fetchAntecedentes() {
-      antecedenteService
-        .get(this.id)
-        .then((response) => (this.antecedente = response.data));
-    },
-  },
   components: {
     AntecedenteEditor:() => import("@/components/AntecedenteEditor")
   },
-  mounted() {
-    this.fetchAntecedentes();
-  }
 };
 </script>
 

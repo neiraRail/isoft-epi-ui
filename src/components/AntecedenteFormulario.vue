@@ -192,7 +192,7 @@ export default {
       return antecedentesService.create(this.antFormulario).then(
         () => {
           this.$router.push({
-             name: 'home'
+             name: 'Ver-antecedente'
           });
         },
         (error) => {
